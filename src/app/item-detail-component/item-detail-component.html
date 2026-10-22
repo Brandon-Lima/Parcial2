@@ -1,0 +1,8 @@
+<h4>Detalle del proceso</h4>
+<p>Codigo: {{ item.id }}</p>
+<p>Proceso: {{ item.nombre }}</p>
+<p>Responsable: {{ item.responsable }}</p>
+<p>Estado: {{ item.estado }}</p>
+<p>Prioridad: {{ item.prioridad }}</p>
+<p>Descripcion: {{ item.descripcion }}</p>
+<a [routerLink]="['/proceso', item.nombre]">Ver pagina del proceso</a>

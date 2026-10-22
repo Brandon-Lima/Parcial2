@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h2 class="text-center">Modulo de Procesos</h2>
+  <br>
+  <form class="form-group row">
+    <div class="form-group col-md-3">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Nombre del proceso" [(ngModel)]="cuadroNombre" name="nombre">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="responsable">Responsable</label>
+      <input type="text" class="form-control" id="responsable" placeholder="Responsable" [(ngModel)]="cuadroResponsable" name="responsable">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="estado">Estado</label>
+      <select class="form-control" id="estado" [(ngModel)]="cuadroEstado" name="estado">
+        @for (estado of estados; track estado) {
+          <option [value]="estado">{{ estado }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="prioridad">Prioridad</label>
+      <select class="form-control" id="prioridad" [(ngModel)]="cuadroPrioridad" name="prioridad">
+        @for (prioridad of prioridades; track prioridad) {
+          <option [value]="prioridad">{{ prioridad }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="descripcion">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" placeholder="Descripcion" [(ngModel)]="cuadroDescripcion" name="descripcion">
+    </div>
+    <div class="form-group col-md-12">
+      <button type="button" class="btn btn-outline-success" (click)="agregar_proceso()">Agregar Proceso</button>
+    </div>
+  </form>
+
+  @for (proceso of procesos; track $index; let i = $index) {
+    <div class="row">
+      <div class="col">
+        {{ i + 1 }} - {{ proceso.nombre }} - {{ proceso.responsable }} - {{ proceso.prioridad }} - {{ proceso.estado }}
+        <a [routerLink]="['/proceso', proceso.nombre]">Ver detalle</a>&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-warning" (click)="avanzar_estado(i)">Avanzar estado</button>
+      </div>
+    </div>
+    <br>
+  }
+</div>

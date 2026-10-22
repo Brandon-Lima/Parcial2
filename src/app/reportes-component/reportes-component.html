@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <h2 class="text-center">Reportes</h2>
+  <p class="text-center">Total de procesos registrados: {{ total }}</p>
+  <br>
+  <div class="row">
+    @for (estado of estados; track estado) {
+      <div class="col text-center">
+        <h4>{{ estado }}</h4>
+        <h1>{{ cantidad(estado) }}</h1>
+      </div>
+    }
+  </div>
+  <br>
+  <h4>Resumen por proceso</h4>
+  @for (proceso of procesos; track $index; let i = $index) {
+    <div class="row">
+      <div class="col">
+        {{ i + 1 }} - {{ proceso.nombre }} - {{ proceso.responsable }} - {{ proceso.prioridad }} - {{ proceso.estado }}
+      </div>
+    </div>
+  }
+</div>

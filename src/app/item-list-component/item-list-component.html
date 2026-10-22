@@ -1,0 +1,11 @@
+<h4>Lista de procesos</h4>
+@for (item of items; track $index) {
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-outline-info" [class.active]="item.id === seleccionadoId" (click)="seleccionar(item)">
+        {{ item.id }} - {{ item.nombre }} ({{ item.estado }})
+      </button>
+    </div>
+  </div>
+  <br>
+}

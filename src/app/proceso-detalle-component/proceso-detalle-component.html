@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <h2>El proceso accedido es el: {{ proceso }}</h2>
+  @if (existe) {
+    <p>Responsable: {{ datosProceso.responsable }}</p>
+    <p>Estado: {{ datosProceso.estado }}</p>
+    <p>Prioridad: {{ datosProceso.prioridad }}</p>
+    <p>Descripcion: {{ datosProceso.descripcion }}</p>
+  }
+  <br>
+  <button class="btn btn-primary" (click)="volverProcesos()">Volver a Procesos</button>
+</div>

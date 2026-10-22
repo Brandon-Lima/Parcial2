@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h1 class="text-center">{{ titulo }}</h1>
+  <br>
+  <div class="row">
+    <div class="col">
+      <app-item-list-component [items]="procesos" [seleccionadoId]="procesoSeleccionado.id"
+        (itemSeleccionado)="mostrar_detalle($event)"></app-item-list-component>
+    </div>
+    <div class="col">
+      @if (haySeleccion) {
+        <app-item-detail-component [item]="procesoSeleccionado"></app-item-detail-component>
+      } @else {
+        <h4>Detalle del proceso</h4>
+        <p>Seleccione un proceso de la lista para ver su informacion completa.</p>
+      }
+    </div>
+  </div>
+</div>
